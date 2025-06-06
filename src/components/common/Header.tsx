@@ -6,15 +6,12 @@ type Props = {};
 const Header = (_props: Props) => {
     return (
         <header className="border-b text-sm text-gray-700">
-            {/* Top header */}
             <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
-                {/* Logo */}
                 <div className="flex items-center gap-2">
                     <span className="font-semibold text-black text-lg">B-World</span>
                     <span className="text-purple-500">| We love books</span>
                 </div>
 
-                {/* Search */}
                 <div className="flex-1 max-w-md w-full">
                     <input
                         type="text"
@@ -23,7 +20,6 @@ const Header = (_props: Props) => {
                     />
                 </div>
 
-                {/* Links */}
                 <div className="flex flex-wrap items-center gap-4 text-gray-600">
                     <Link to="#" className="hover:underline">Privacy policy</Link>
                     <Link to="#" className="hover:underline">Warranty</Link>
@@ -31,7 +27,6 @@ const Header = (_props: Props) => {
                     <Link to="#" className="hover:underline">Returns</Link>
                 </div>
 
-                {/* Icons */}
                 <div className="flex items-center gap-4 text-purple-500 text-xl">
                     <Link to="/cart" className="relative" title="Shopping Cart">
                         <i className="fas fa-shopping-cart" aria-hidden="true" />
@@ -54,7 +49,6 @@ const Header = (_props: Props) => {
                 </div>
             </div>
 
-            {/* Navigation */}
             <nav className="border-t">
                 <div className="max-w-7xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="flex flex-wrap gap-4 text-gray-700">
@@ -75,11 +69,9 @@ const Header = (_props: Props) => {
                 </div>
             </nav>
 
-            {/* Hero Section */}
             <section className="bg-white py-12 px-4">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-                    {/* Text content */}
-                    <div className="space-y-4">
+                    <div className="space-y-4 md:text-left">
                         <span className="inline-block border border-purple-300 text-purple-500 text-xs px-3 py-1 rounded-full">
                             Author of August
                         </span>
@@ -94,7 +86,7 @@ const Header = (_props: Props) => {
                             been translated into over 40 languages.
                         </p>
 
-                        <button className="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700 transition">
+                        <button className="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700 transition md:ml-0 md:mr-auto block">
                             View his books
                         </button>
                     </div>
@@ -106,10 +98,9 @@ const Header = (_props: Props) => {
                         </p>
 
                         <img
-                            src="/public/img/bookbaner.png"
+                            src="/img/bookbaner.png"
                             alt=""
-                            className="w-full object-cover"
-
+                            className="w-full max-w-xs md:max-w-md lg:max-w-lg mx-auto md:mx-0 object-cover rounded-lg shadow-md "
                         />
                     </div>
                 </div>
