@@ -1,22 +1,17 @@
-import { createBrowserRouter, Link } from "react-router-dom";
-import Carts from "../pages/Carts";
+import { createBrowserRouter } from "react-router-dom";
+import MainLayout from "../components/layouts/MainLayout";
+import FooterPage from "../components/common/Footer";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <div>
-        <h1>Hello World</h1>
-        <Link to="about">About Us</Link>
-      </div>
-    ),
+    element: <MainLayout />,
+    children: [
+      {
+
+        path: "footer",
+        element: <FooterPage />,
+      },
+    ],
   },
-  {
-    path: "about",
-    element: <div>About</div>,
-  },
-  {
-    path: "carts",
-    element: <Carts />
-  }
 ]);
