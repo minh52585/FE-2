@@ -51,7 +51,7 @@ const Footer = () => {
                 </div>
 
                 {/* If you have questions... */}
-                <div className="flex flex-col justify-center md:items-start rounded-lg p-4 shadow-sm bg-white/10">
+                <div className="flex flex-col justify-center md:items-start rounded-lg p-4 shadow-sm">
                     <p className="mb-2 leading-relaxed text-sm">
                         If you have questions, you can contact us or we will do it for you.
                     </p>
@@ -77,11 +77,14 @@ const Footer = () => {
 
 
             {/* Bottom Footer */}
-            <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto mt-8 gap-4">
+            <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto mt-8 gap-4">
                 <div>
-                    <p className="text-sm opacity-80">© All copyrights are reserved. B-World 2022.</p>
+                    <p className="text-sm opacity-80 text-center w-full">
+                        © All copyrights are reserved. B-World 2022.
+                    </p>
                 </div>
             </div>
+
         </footer>
     );
 };

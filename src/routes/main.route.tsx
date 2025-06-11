@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
-import FooterPage from "../components/common/Footer";
+import HomePage from "../pages/HomePage";
+import ProductDetail from "../components/common/productdetail";
 
 export const router = createBrowserRouter([
   {
@@ -8,10 +9,14 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       {
-
-        path: "footer",
-        element: <FooterPage />,
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetail />,
       },
     ],
+
   },
 ]);
