@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../common/Header";
 import Footer from "../common/Footer";
-import Product from "../common/product";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const MainLayout = () => {
@@ -10,7 +9,6 @@ const MainLayout = () => {
             <Header />
 
             <main className="flex-1 container mx-auto px-4 py-6">
-                <Product />
                 <Outlet />
             </main>
 

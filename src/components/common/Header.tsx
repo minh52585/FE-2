@@ -69,57 +69,7 @@ const Header = (_props: Props) => {
                 </div>
             </nav>
 
-            <section className="bg-white py-12 px-4">
-                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
-                    <div className="space-y-4 md:text-left">
-                        <span className="inline-block border border-purple-300 text-purple-500 text-xs px-3 py-1 rounded-full">
-                            Author of August
-                        </span>
 
-                        <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-                            Eric-Emmanuel Schmitt
-                        </h1>
-
-                        <p className="text-gray-600">
-                            Eric-Emmanuel Schmitt has been awarded more than 20 literary prizes and distinctions,
-                            and in 2001 he received the title of Chevalier des Arts et des Lettres. His books have
-                            been translated into over 40 languages.
-                        </p>
-
-                        <button className="bg-purple-600 text-white px-5 py-2 rounded hover:bg-purple-700 transition md:ml-0 md:mr-auto block">
-                            View his books
-                        </button>
-                    </div>
-
-                    {/* Image content */}
-                    <div className="text-center md:text-right relative">
-                        <p className="text-xs uppercase text-gray-500 mb-2">
-                            Autographed books + 30% discount
-                        </p>
-
-                        <img
-                            src="/img/bookbaner.png"
-                            alt=""
-                            className="w-full max-w-xs md:max-w-md lg:max-w-lg mx-auto md:mx-0 object-cover rounded-lg shadow-md "
-                        />
-                    </div>
-                </div>
-
-                <div className="mt-12 border-t pt-6 flex flex-wrap justify-center gap-8 text-sm text-gray-700">
-                    <div className="flex items-center gap-2">
-                        <i className="fas fa-truck text-lg text-purple-500" aria-hidden="true" />
-                        <span>Free shipping over $50</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <i className="fas fa-star text-lg text-purple-500" aria-hidden="true" />
-                        <span>Save with loyalty points</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                        <i className="fas fa-book-open text-lg text-purple-500" aria-hidden="true" />
-                        <span className="font-semibold">Read a few pages</span>
-                    </div>
-                </div>
-            </section>
         </header>
     );
 };
