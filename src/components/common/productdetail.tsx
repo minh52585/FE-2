@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
 
 const BookDetailPage: React.FC = () => {
-    const thumbnails = ['/thumb1.jpg', '/thumb2.jpg', '/thumb3.jpg', '/thumb4.jpg'];
+    const thumbnails = ['', '', '', ''];
     const collectionBooks = [
-        { image: '/book1.jpg', title: 'Chain of Iron: Volume 2', price: '$22.88' },
-        { image: '/book2.jpg', title: 'Chain of Thorns: Volume 3', price: '$24.88' },
-        { image: '/book3.jpg', title: 'City of Bones', price: '$15.00' },
-        { image: '/book4.jpg', title: 'Clockwork Angel', price: '$18.50' },
+        { image: '', title: 'Chain of Iron: Volume 2', price: '$22.88' },
+        { image: '', title: 'Chain of Thorns: Volume 3', price: '$24.88' },
+        { image: '', title: 'City of Bones', price: '$15.00' },
+        { image: '', title: 'Clockwork Angel', price: '$18.50' },
     ];
     const lastViewedBooks = [
-        { image: '/lv1.jpg', title: 'The Librarian Spy', price: '$8.90' },
-        { image: '/lv2.jpg', title: 'The Night Circus', price: '$10.50' },
-        { image: '/lv3.jpg', title: 'A Court of Thorns and Roses', price: '$12.00' },
-        { image: '/lv4.jpg', title: 'The Book Thief', price: '$14.20' },
+        { image: '', title: 'The Librarian Spy', price: '$8.90' },
+        { image: '', title: 'The Night Circus', price: '$10.50' },
+        { image: '', title: 'A Court of Thorns and Roses', price: '$12.00' },
+        { image: '', title: 'The Book Thief', price: '$14.20' },
     ];
 
     const [mainImage, setMainImage] = useState('/book-cover.jpg');
 
     return (
         <div className="max-w-7xl mx-auto p-4 space-y-16">
-            {/* Book Detail */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Book Image */}
                 <div>
                     <img src={mainImage} alt="Book Cover" className="w-full rounded-2xl shadow-lg object-cover" />
                     <div className="grid grid-cols-4 gap-4 mt-6">
@@ -38,8 +36,6 @@ const BookDetailPage: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Book Info */}
-                {/* Book Info */}
                 <div className="space-y-6">
                     <h1 className="text-3xl font-bold">Chain of Gold: The Last Hours #1</h1>
                     <p className="text-gray-600 text-lg">Tác giả: Cassandra Clare</p>
@@ -71,7 +67,6 @@ const BookDetailPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Reviews */}
             <div className="max-w-4xl mx-auto">
                 <h2 className="text-2xl font-semibold mb-6">Đánh giá</h2>
                 <div className="space-y-6">
@@ -91,7 +86,6 @@ const BookDetailPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Collection */}
             <div>
                 <h2 className="text-2xl font-semibold mb-6">Collection</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -108,7 +102,6 @@ const BookDetailPage: React.FC = () => {
                 </div>
             </div>
 
-            {/* Last Viewed */}
             <div>
                 <h2 className="text-2xl font-semibold mb-6">Last viewed</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

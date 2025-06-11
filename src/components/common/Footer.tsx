@@ -1,15 +1,10 @@
 const Footer = () => {
     return (
         <footer className="bg-gradient-to-br from-purple-500 to-purple-400 text-white pt-12 pb-8 px-4">
-            {/* Social & Payment row: nằm hai đầu - ĐƯA LÊN TRÊN PHẦN GẠCH */}
-
             <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 border-b border-purple-300 pb-10">
-                {/* Logo + Socials */}
                 <div className="space-y-4 min-w-[160px] col-span-1 flex flex-col items-center md:items-start">
                     <h2 className="text-2xl font-extrabold tracking-wide">B-World</h2>
                 </div>
-
-                {/* Categories */}
                 <div>
                     <h3 className="font-semibold mb-3 text-lg">Categories</h3>
                     <ul className="space-y-1 text-sm">
@@ -19,8 +14,6 @@ const Footer = () => {
                         <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Mystery</a></li>
                     </ul>
                 </div>
-
-                {/* For Kids */}
                 <div>
                     <h3 className="font-semibold mb-3 text-lg">For kids</h3>
                     <ul className="space-y-1 text-sm">
@@ -29,8 +22,6 @@ const Footer = () => {
                         <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Fantasy</a></li>
                     </ul>
                 </div>
-
-                {/* E-Books */}
                 <div>
                     <h3 className="font-semibold mb-3 text-lg">E-Books</h3>
                     <ul className="space-y-1 text-sm">
@@ -39,8 +30,6 @@ const Footer = () => {
                         <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Horror</a></li>
                     </ul>
                 </div>
-
-                {/* Help & Contacts */}
                 <div>
                     <h3 className="font-semibold mb-3 text-lg">Help & Contacts</h3>
                     <ul className="space-y-2 text-sm">
@@ -49,8 +38,6 @@ const Footer = () => {
                         <li><i className="fas fa-envelope mr-2" aria-hidden="true" /> b.world@store.ro</li>
                     </ul>
                 </div>
-
-                {/* If you have questions... */}
                 <div className="flex flex-col justify-center md:items-start rounded-lg p-4 shadow-sm">
                     <p className="mb-2 leading-relaxed text-sm">
                         If you have questions, you can contact us or we will do it for you.
@@ -76,7 +63,6 @@ const Footer = () => {
             </div>
 
 
-            {/* Bottom Footer */}
             <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto mt-8 gap-4">
                 <div>
                     <p className="text-sm opacity-80 text-center w-full">
