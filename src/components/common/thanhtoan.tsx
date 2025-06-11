@@ -62,7 +62,7 @@ const ThanhToan: React.FC = () => {
                                 alt="Sản phẩm 1"
                                 className="w-12 h-16 object-cover rounded"
                             />
-                            <span>Sản phẩm 1</span>
+                            <span>Đắc nhân tâm</span>
                             <span className="ml-2 text-gray-500">x2</span>
                         </div>
                         <span>200.000₫</span>
