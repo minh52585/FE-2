@@ -49,13 +49,13 @@ const Cart: React.FC = () => {
 
     return (
         <main className="flex-grow container mx-auto px-4 py-10">
-            <h2 className="text-3xl font-bold mb-8 text-purple-700">Giỏ Hàng</h2>
+            <h2 className="text-3xl font-bold mb-8 text-purple-700 text-center">Giỏ Hàng</h2>
             <div className="overflow-x-auto">
                 <table className="min-w-full bg-white rounded-lg shadow-md">
                     <thead>
                         <tr>
-                            <th className="px-4 py-2 border-b text-left">Sản phẩm</th>
-                            <th className="px-4 py-2 border-b text-left">Mô tả</th>
+                            <th className="px-4 py-2 border-b text-center">Sản phẩm</th>
+                            <th className="px-4 py-2 border-b text-center">Mô tả</th>
                             <th className="px-4 py-2 border-b text-center">Giá</th>
                             <th className="px-4 py-2 border-b text-center">Số lượng</th>
                             <th className="px-4 py-2 border-b text-center">Tổng</th>
