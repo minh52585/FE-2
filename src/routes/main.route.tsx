@@ -3,6 +3,7 @@ import MainLayout from "../components/layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import ProductDetail from "../components/common/productdetail";
 import Cart from "../components/common/cart";
+import Thanhtoan from "../components/common/thanhtoan";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "thanhtoan",
+        element: <Thanhtoan />,
       }
     ],
 
