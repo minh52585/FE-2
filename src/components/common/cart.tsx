@@ -35,7 +35,8 @@ const Cart: React.FC = () => {
         setCart((prev) =>
             prev.map((item) =>
                 item.id === id
-                    ? { ...item, quantity: value > 0 ? value : 1 } : item
+                    ? { ...item, quantity: value < 1 ? 1 : value > 50 ? 50 : value }
+                    : item
             )
         );
     };
@@ -93,6 +94,9 @@ const Cart: React.FC = () => {
                                             +
                                         </button>
                                     </div>
+                                    {item.quantity >= 50 && (
+                                        <div className="text-xs text-red-500 mt-1">Tối đa chỉ đc 50 sản phẩm</div>
+                                    )}
                                 </td>
                                 <td className="px-4 py-2 text-center font-semibold">
                                     {(item.price * item.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
