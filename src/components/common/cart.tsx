@@ -35,8 +35,7 @@ const Cart: React.FC = () => {
         setCart((prev) =>
             prev.map((item) =>
                 item.id === id
-                    ? { ...item, quantity: value > 0 ? value : 1 }
-                    : item
+                    ? { ...item, quantity: value > 0 ? value : 1 } : item
             )
         );
     };
@@ -46,8 +45,6 @@ const Cart: React.FC = () => {
     };
 
     const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const shipping = cart.length > 0 ? 5 : 0;
-    const total = subtotal + shipping;
 
     return (
         <main className="flex-grow container mx-auto px-4 py-10">
@@ -116,7 +113,7 @@ const Cart: React.FC = () => {
 
                 <div className="flex justify-between font-semibold text-lg border-t pt-4">
                     <span>Tổng thanh toán</span>
-                    <span>{total.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span>
+                    <span>{subtotal.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span>
                 </div>
                 <button
                     className="mt-6 w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700 transition"
