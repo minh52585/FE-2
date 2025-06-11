@@ -1,90 +1,69 @@
 const Footer = () => {
     return (
-        <footer className="bg-gradient-to-br from-purple-500 to-purple-400 text-white pt-12 pb-8 px-4">
-            {/* Social & Payment row: nằm hai đầu - ĐƯA LÊN TRÊN PHẦN GẠCH */}
-
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-8 border-b border-purple-300 pb-10">
-                {/* Logo + Socials */}
-                <div className="space-y-4 min-w-[160px] col-span-1 flex flex-col items-center md:items-start">
-                    <h2 className="text-2xl font-extrabold tracking-wide">B-World</h2>
-                </div>
-
-                {/* Categories */}
-                <div>
-                    <h3 className="font-semibold mb-3 text-lg">Categories</h3>
-                    <ul className="space-y-1 text-sm">
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Psychology</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Self-Help</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Romance</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Mystery</a></li>
-                    </ul>
-                </div>
-
-                {/* For Kids */}
-                <div>
-                    <h3 className="font-semibold mb-3 text-lg">For kids</h3>
-                    <ul className="space-y-1 text-sm">
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Games</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Comics</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Fantasy</a></li>
-                    </ul>
-                </div>
-
-                {/* E-Books */}
-                <div>
-                    <h3 className="font-semibold mb-3 text-lg">E-Books</h3>
-                    <ul className="space-y-1 text-sm">
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Fiction</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Historical</a></li>
-                        <li><a href="#" className="text-white hover:text-black hover:bg-white/80 px-1 rounded transition">Horror</a></li>
-                    </ul>
-                </div>
-
-                {/* Help & Contacts */}
-                <div>
-                    <h3 className="font-semibold mb-3 text-lg">Help & Contacts</h3>
-                    <ul className="space-y-2 text-sm">
-                        <li><i className="fas fa-phone mr-2" aria-hidden="true" /> +445 87 999 000</li>
-                        <li><i className="fas fa-clock mr-2" aria-hidden="true" /> Mo-Fri, 9 AM to 11 PM</li>
-                        <li><i className="fas fa-envelope mr-2" aria-hidden="true" /> b.world@store.ro</li>
-                    </ul>
-                </div>
-
-                {/* If you have questions... */}
-                <div className="flex flex-col justify-center md:items-start rounded-lg p-4 shadow-sm">
-                    <p className="mb-2 leading-relaxed text-sm">
-                        If you have questions, you can contact us or we will do it for you.
-                    </p>
-                    <button className="border text-black border-white px-4 py-1 rounded hover:bg-white hover:text-purple-500 transition font-semibold">
-                        Request a call
-                    </button>
-                </div>
-                <div className="flex justify-between items-center max-w-7xl mx-auto mb-8 px-2">
-                    <section className="flex gap-4">
+        <footer className="bg-[#4f0f87] text-white pt-6 pb-4 px-4">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 border-b border-white pb-6">
+                <div className="space-y-3 min-w-[160px] ml-10 col-span-1 flex flex-col items-center md:items-start">
+                    <h2 className="text-2xl font-bold">📚 Bookora</h2>
+                    <section className="flex gap-5">
                         <i className="fab fa-facebook-f cursor-pointer hover:text-gray-300 text-lg" aria-label="Facebook" role="img" />
                         <i className="fab fa-instagram cursor-pointer hover:text-gray-300 text-lg" aria-label="Instagram" role="img" />
                         <i className="fab fa-twitter cursor-pointer hover:text-gray-300 text-lg" aria-label="Twitter" role="img" />
                     </section>
-
-                    <section className="flex gap-4 social icons  ">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" className="h-7 bg-white rounded px-1 py-0.5" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="Mastercard" className="h-7 bg-white rounded px-1 py-0.5" />
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-7 bg-white rounded px-1 py-0.5" />
-                    </section>
+                    <div>
+                        <ul className="space-y-1 text-sm">
+                            <li><i className="fas fa-phone mr-2" aria-hidden="true" /> 0977 907 877</li>
+                            <li><i className="fas fa-clock mr-2" aria-hidden="true" /> 08:00 - 17:00</li>
+                            <li><i className="fas fa-envelope mr-2" aria-hidden="true" /> bookora@edu.vn</li>
+                        </ul>
+                    </div>
                 </div>
 
-            </div>
-
-
-            {/* Bottom Footer */}
-            <div className="flex flex-col md:flex-row justify-center items-center w-full max-w-7xl mx-auto mt-8 gap-4">
                 <div>
-                    <p className="text-sm opacity-80 text-center w-full">
-                        © All copyrights are reserved. B-World 2022.
-                    </p>
+                    <h3 className="font-bold mb-3 text-lg">DỊCH VỤ</h3>
+                    <ul className="space-y-2 text-sm">
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Điều khoản sử dụng</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách bảo mật thông tin cá nhân</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách bảo mật thanh toán</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Hệ thống trung tâm - Nhà sách</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="font-bold mb-3 text-lg">HỖ TRỢ</h3>
+                    <ul className="space-y-2 text-sm">
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách đổi - trả - hoàn tiền</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách bảo hành - bồi hoàn</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách vận chuyển</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách khách sỉ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 className="font-bold mb-3 text-lg">TÀI KHOẢN CỦA TÔI</h3>
+                    <ul className="space-y-2 text-sm">
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Đăng nhập / Tạo tài khoản mới</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Thay đổi địa chỉ khách hàng</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chi tiết tài khoản</a></li>
+                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Lịch sử mua hàng</a></li>
+                    </ul>
                 </div>
             </div>
 
+            <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto mt-6 gap-6 px-4">
+                <div className="text-sm text-purple-100 text-center md:text-left">
+                    Bản quyền 2025 © thuộc về Bookora.
+                </div>
+                <section className="flex gap-4 mr-28">
+                    <img src="https://byvn.net/uAZY" className="h-5 w-10 bg-white rounded-md p-1 hover:scale-105 transition duration-300" />
+                    <img src="https://byvn.net/6Xzr" className="h-5 w-10 bg-white rounded-md p-1 hover:scale-105 transition duration-300" />
+                    <img src="https://byvn.net/wHZw" className="h-5 w-10 bg-white rounded-md p-1 hover:scale-105 transition duration-300" />
+                </section>
+                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center justify-center p-1 bg-white text-[#4f0f87]">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                    </svg>
+                </button>
+            </div>
         </footer>
     );
 };
