@@ -1,70 +1,83 @@
 const Footer = () => {
     return (
-        <footer className="bg-[#4f0f87] text-white pt-6 pb-4 px-4">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-16 border-b border-white pb-6">
-                <div className="space-y-3 min-w-[160px] ml-10 col-span-1 flex flex-col items-center md:items-start">
-                    <h2 className="text-2xl font-bold">📚 Bookora</h2>
-                    <section className="flex gap-5">
-                        <i className="fab fa-facebook-f cursor-pointer hover:text-gray-300 text-lg" aria-label="Facebook" role="img" />
-                        <i className="fab fa-instagram cursor-pointer hover:text-gray-300 text-lg" aria-label="Instagram" role="img" />
-                        <i className="fab fa-twitter cursor-pointer hover:text-gray-300 text-lg" aria-label="Twitter" role="img" />
-                    </section>
+        <footer className="bg-purple-400 text-white py-8 px-16">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+                {/* Logo and Social */}
+                <div className="flex flex-col justify-between">
+                    <div className="font-bold text-xl">B-World</div>
+                    <div className="flex space-x-4 mt-4">
+                        <a href="#" className="text-white text-2xl"><i className="fab fa-facebook-f"></i></a>
+                        <a href="#" className="text-white text-2xl"><i className="fab fa-instagram"></i></a>
+                        <a href="#" className="text-white text-2xl"><i className="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                {/* Categories, For Kids, E-Books, Help & Contacts */}
+                <div className="md:col-span-3 grid grid-cols-1 sm:grid-cols-4 gap-8">
+                    {/* Categories */}
                     <div>
-                        <ul className="space-y-1 text-sm">
-                            <li><i className="fas fa-phone mr-2" aria-hidden="true" /> 0977 907 877</li>
-                            <li><i className="fas fa-clock mr-2" aria-hidden="true" /> 08:00 - 17:00</li>
-                            <li><i className="fas fa-envelope mr-2" aria-hidden="true" /> bookora@edu.vn</li>
+                        <h3 className="font-bold mb-4">Categories</h3>
+                        <ul className="space-y-2">
+                            <li><a className="text-white" href="#">Psychology</a></li>
+                            <li><a className="text-white" href="#">Self-Help</a></li>
+                            <li><a className="text-white" href="#">Romance</a></li>
+                            <li><a className="text-white" href="#">Mystery</a></li>
+                        </ul>
+                    </div>
+                    {/* For Kids */}
+                    <div>
+                        <h3 className="font-bold mb-4">For kids</h3>
+                        <ul className="space-y-2">
+                            <li><a className="text-white" href="#">Games</a></li>
+                            <li><a className="text-white" href="#">Comics</a></li>
+                            <li><a className="text-white" href="#">Fantasy</a></li>
+                        </ul>
+                    </div>
+                    {/* E-Books */}
+                    <div>
+                        <h3 className="font-bold mb-4">E-Books</h3>
+                        <ul className=" text-white space-y-2">
+                            <li><a className="text-white" href="#">Fiction</a></li>
+                            <li><a className="text-white" href="#">Historical</a></li>
+                            <li><a className="text-white" href="#">Horror</a></li>
+                        </ul>
+                    </div>
+                    {/* Help & Contacts */}
+                    <div>
+                        <h3 className="font-bold mb-4">Help & Contacts</h3>
+                        <ul className="space-y-2 text-sm">
+                            <li><i className="text-white fas fa-phone mr-2"></i> +445 87 999 000</li>
+                            <li><i className="text-white fas fa-clock mr-2"></i> Mo-Fri, 9 AM to 11 PM</li>
+                            <li><i className="text-white fas fa-envelope mr-2"></i> b.world@store.ro</li>
                         </ul>
                     </div>
                 </div>
 
-                <div>
-                    <h3 className="font-bold mb-3 text-lg">DỊCH VỤ</h3>
-                    <ul className="space-y-2 text-sm">
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Điều khoản sử dụng</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách bảo mật thông tin cá nhân</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách bảo mật thanh toán</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Hệ thống trung tâm - Nhà sách</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 className="font-bold mb-3 text-lg">HỖ TRỢ</h3>
-                    <ul className="space-y-2 text-sm">
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách đổi - trả - hoàn tiền</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách bảo hành - bồi hoàn</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách vận chuyển</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chính sách khách sỉ</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 className="font-bold mb-3 text-lg">TÀI KHOẢN CỦA TÔI</h3>
-                    <ul className="space-y-2 text-sm">
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Đăng nhập / Tạo tài khoản mới</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Thay đổi địa chỉ khách hàng</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Chi tiết tài khoản</a></li>
-                        <li><a href="#" className="text-white font-normal hover:underline hover:text-white">Lịch sử mua hàng</a></li>
-                    </ul>
+                {/* Contact & Payment */}
+                <div className="flex flex-col gap-8">
+                    <p className="text-white text-lg mb-4">
+                        If you have questions, <br />
+                        you can contact us or <br />
+                        we will do it for you.
+                    </p>
+                    <button className="border border-white text-black py-3 px-6 text-lg hover:bg-white hover:text-purple-400 transition rounded">
+                        Request a call
+                    </button>
+                    <div className="flex space-x-4 mt-4">
+                        <img src="https://www.paypalobjects.com/webstatic/icon/pp258.png" alt="PayPal" className="h-8" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png" alt="MasterCard" className="h-8" />
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-8" />
+                    </div>
                 </div>
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl mx-auto mt-6 gap-6 px-4">
-                <div className="text-sm text-purple-100 text-center md:text-left">
-                    Bản quyền 2025 © thuộc về Bookora.
+            <div className="flex justify-center items-center mt-8 border-t border-white pt-4">
+                <div className="text-sm text-center w-full">
+                    © All copyrights are reserved. B-World 2022.
                 </div>
-                <section className="flex gap-4 mr-28">
-                    <img src="https://byvn.net/uAZY" className="h-5 w-10 bg-white rounded-md p-1 hover:scale-105 transition duration-300" />
-                    <img src="https://byvn.net/6Xzr" className="h-5 w-10 bg-white rounded-md p-1 hover:scale-105 transition duration-300" />
-                    <img src="https://byvn.net/wHZw" className="h-5 w-10 bg-white rounded-md p-1 hover:scale-105 transition duration-300" />
-                </section>
-                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="flex items-center justify-center p-1 bg-white text-[#4f0f87]">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                    </svg>
-                </button>
             </div>
         </footer>
+
     );
 };
 

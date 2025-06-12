@@ -1,123 +1,122 @@
 import React, { useState } from 'react';
 
 const BookDetailPage: React.FC = () => {
-    const thumbnails = ['', '', '', ''];
-    const collectionBooks = [
-        { image: '', title: 'Chain of Iron: Volume 2', price: '$22.88' },
-        { image: '', title: 'Chain of Thorns: Volume 3', price: '$24.88' },
-        { image: '', title: 'City of Bones', price: '$15.00' },
-        { image: '', title: 'Clockwork Angel', price: '$18.50' },
-    ];
-    const lastViewedBooks = [
-        { image: '', title: 'The Librarian Spy', price: '$8.90' },
-        { image: '', title: 'The Night Circus', price: '$10.50' },
-        { image: '', title: 'A Court of Thorns and Roses', price: '$12.00' },
-        { image: '', title: 'The Book Thief', price: '$14.20' },
-    ];
+    const [quantity, setQuantity] = useState(1);
 
-    const [mainImage, setMainImage] = useState('/book-cover.jpg');
+    const handleDecrease = () => {
+        setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+    };
+
+    const handleIncrease = () => {
+        setQuantity((prev) => prev + 1);
+    };
 
     return (
-        <div className="max-w-7xl mx-auto p-4 space-y-16">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <img src={mainImage} alt="Book Cover" className="w-full rounded-2xl shadow-lg object-cover" />
-                    <div className="grid grid-cols-4 gap-4 mt-6">
-                        {thumbnails.map((thumb, index) => (
-                            <img
-                                key={index}
-                                src={thumb}
-                                alt={`Thumbnail ${index + 1}`}
-                                className={`border-2 rounded-lg cursor-pointer transition-transform transform hover:scale-105 ${mainImage === thumb ? 'border-purple-600' : 'border-gray-300'
-                                    }`}
-                                onClick={() => setMainImage(thumb)}
-                            />
-                        ))}
+        <>
+            <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Cột trái: Ảnh biến thể và ảnh chính */}
+                <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
+                    {/* Biến thể (thumbnails) bên trái */}
+                    <div className="flex md:flex-col gap-2 md:mr-4">
+                        <img src="https://picsum.photos/80/112?random=2" alt="Book 1" className="w-20 h-28 object-cover border cursor-pointer rounded" />
+                        <img src="https://picsum.photos/80/112?random=3" alt="Book 2" className="w-20 h-28 object-cover border cursor-pointer rounded" />
+                        <img src="https://picsum.photos/80/112?random=4" alt="Book 3" className="w-20 h-28 object-cover border cursor-pointer rounded" />
+                    </div>
+                    {/* Ảnh sản phẩm chính */}
+                    <div className="w-[300px] h-[450px]">
+                        <img
+                            src="https://picsum.photos/300/450?random=1"
+                            alt="Chain of Gold"
+                            className="w-full h-full object-cover rounded"
+                        />
                     </div>
                 </div>
+                {/* Cột phải: Thông tin sách */}
+                <div>
+                    <h2 className="text-2xl font-semibold mb-2">Chain of Gold: The Last Hours #1</h2>
+                    <p className="text-gray-600 mb-4">Cassandra Clare</p>
+                    <div className="flex items-center mb-4">
+                        <div className="flex text-yellow-400 text-xl mr-2">
+                            ★★★★☆
+                        </div>
+                        <span>4.5</span>
+                    </div>
 
-                <div className="space-y-6">
-                    <h1 className="text-3xl font-bold">Chain of Gold: The Last Hours #1</h1>
-                    <p className="text-gray-600 text-lg">Tác giả: Cassandra Clare</p>
-                    <div className="text-2xl font-bold text-purple-600">$12.88</div>
+                    <div className="text-2xl font-bold mb-4">$12.49</div>
 
-                    <p className="text-gray-700 text-base leading-relaxed">
-                        Chain of Gold là phần mở đầu cho series The Last Hours, một phần mở rộng của thế giới
-                        Shadowhunters với các nhân vật mới cùng câu chuyện hấp dẫn...
+                    <p className="text-gray-700 mb-6">
+                        From #1 New York Times and USA TODAY bestselling author Cassandra Clare comes the first novel in a brand-new trilogy...
                     </p>
 
-                    <div className="flex items-center gap-6 justify-center">
-                        <button className="bg-purple-600 text-white px-6 py-3 rounded-xl hover:bg-purple-700 transition">
-                            Thêm vào giỏ
-                        </button>
-                        <button className="border px-6 py-3 rounded-xl hover:bg-gray-100 transition">Yêu thích</button>
+                    <div className="flex items-center mb-6">
+                        <button
+                            className="border px-2 py-1 mr-2"
+                            onClick={handleDecrease}
+                            disabled={quantity <= 1}
+                        >-</button>
+                        <span>{quantity}</span>
+                        <button
+                            className="border px-2 py-1 ml-2"
+                            onClick={handleIncrease}
+                        >+</button>
                     </div>
 
-                    <div className="space-y-2 text-base text-gray-700">
-                        <p>
-                            <span className="font-semibold">Tình trạng:</span> Còn hàng
-                        </p>
-                        <p>
-                            <span className="font-semibold">Nhà xuất bản:</span> Simon & Schuster
-                        </p>
-                        <p>
-                            <span className="font-semibold">Ngày phát hành:</span> 03/2021
-                        </p>
+                    <div className="flex space-x-4 mb-6">
+                        <button className="bg-purple-400 text-white py-2 px-4 rounded hover:bg-purple-500">Add to cart</button>
+                        <button className="border border-purple-400 text-purple-400 py-2 px-4 rounded hover:bg-purple-400 hover:text-white transition">Favorite</button>
                     </div>
-                </div>
-            </div>
+                    <hr className="my-4 border-t-2 border-gray-300" />
 
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-2xl font-semibold mb-6">Đánh giá</h2>
-                <div className="space-y-6">
-                    <div className="flex items-start gap-4 justify-start">
-                        <img
-                            src="https://via.placeholder.com/48x48?text=AVT1"
-                            alt="Avatar Nguyễn Cường"
-                            className="w-12 h-12 rounded-full object-cover"
-                        />
+                    <div className="grid grid-cols-2 gap-4 text-sm text-gray-700">
                         <div>
-                            <p className="font-semibold">Nguyễn Cường</p>
-                            <p className="text-yellow-400">★★★★★</p>
-                            <p className="text-gray-600">Thật sự rất hay!</p>
+                            <p><span className="font-size-200 font-semibold">Publisher:</span> Margaret K. Books</p>
+                            <p><span className="font-semibold">Language:</span> English</p>
+                            <p><span className="font-semibold">Print length:</span> 592 pages</p>
+                        </div>
+                        <div>
+                            <p><span className="font-semibold">Publication date:</span> March 3, 2020</p>
+                            <p><span className="font-semibold">Reading age:</span> 14+</p>
+                            <p><span className="font-semibold">Dimensions:</span> 6 × 1.8 × 9 inches</p>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <div>
-                <h2 className="text-2xl font-semibold mb-6">Collection</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {collectionBooks.map((book, index) => (
-                        <div key={index} className="space-y-3">
-                            <img src={book.image} alt={book.title} className="rounded-2xl shadow-md w-full h-60 object-cover" />
-                            <p className="text-base font-medium text-center">{book.title}</p>
-                            <p className="text-purple-600 font-semibold text-center">{book.price}</p>
-                            <button className="bg-purple-600 text-white px-3 py-2 rounded-lg w-full hover:bg-purple-700 transition">
-                                Mua ngay
-                            </button>
+            <div className="container mx-auto px-6 py-10">
+                <h3 className="text-2xl font-semibold mb-6">Đánh giá</h3>
+
+                <div className="flex items-start mb-6">
+                    <img
+                        src="https://randomuser.me/api/portraits/men/32.jpg"
+                        alt="Nguyễn Cường"
+                        className="w-12 h-12 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                        <div className="flex items-center mb-2">
+                            <div className="text-yellow-400 mr-2">★★★★★</div>
+                            <span className="text-gray-500 text-sm">30 phút trước</span>
                         </div>
-                    ))}
+                        <p className="font-semibold">Nguyễn Cường</p>
+                        <span>Sách này hay quá!</span>
+                    </div>
                 </div>
-            </div>
-
-            <div>
-                <h2 className="text-2xl font-semibold mb-6">Last viewed</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    {lastViewedBooks.map((book, index) => (
-                        <div key={index} className="space-y-3">
-                            <img src={book.image} alt={book.title} className="rounded-2xl shadow-md w-full h-60 object-cover" />
-                            <p className="text-base font-medium text-center">{book.title}</p>
-                            <p className="text-purple-600 font-semibold text-center">{book.price}</p>
-                            <button className="bg-purple-600 text-white px-3 py-2 rounded-lg w-full hover:bg-purple-700 transition">
-                                Xem lại
-                            </button>
+                <div className="flex items-start mb-6">
+                    <img
+                        src="https://randomuser.me/api/portraits/women/44.jpg"
+                        alt="Ngọc Hạ"
+                        className="w-12 h-12 rounded-full object-cover mr-4"
+                    />
+                    <div>
+                        <div className="flex items-center mb-2">
+                            <div className="text-yellow-400 mr-2">★★★★☆</div>
+                            <span className="text-gray-500 text-sm">1 giờ trước</span>
                         </div>
-                    ))}
+                        <p className="font-semibold">Ngọc Hạ</p>
+                        <span>Truyện hấp dẫn, rất thích!</span>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
