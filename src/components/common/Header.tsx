@@ -1,18 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 type Props = {};
 
 const Header = (_props: Props) => {
     return (
         <div className="text-sm font-sans">
-            <div className="flex items-center justify-between px-6 py-2 border-b">
+            <div className="flex items-center justify-between px-6 py-2 border-b bg-white">
                 <div className="flex items-center space-x-3">
                     <Link to={"/"} className="font-bold text-lg text-gray-800">
                         B-<span className="text-purple-600">World</span>
                     </Link>
                     <span className="text-gray-400">We love books</span>
                 </div>
-
 
                 <div className="flex items-center space-x-3">
                     <form
@@ -24,14 +23,13 @@ const Header = (_props: Props) => {
                         <input
                             type="text"
                             placeholder="Tìm kiếm sách..."
-                            className="border px-3 py-1 rounded-md text-sm w-full outline-none focus:ring-2 focus:ring-purple-300 pr-10"
+                            className="rounded-md text-sm w-full outline-none focus:ring-2 focus:ring-purple-300 pr-10 bg-white border border-gray-300 py-2 px-3"
                         />
                         <button
                             type="submit"
-                            className="absolute right-2 top-1/2 -translate-y-1/2  "
-
+                            className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-purple-600 rounded-full text-white hover:bg-purple-700 transition"
                         >
-                            <i className="fas fa-search"></i>
+                            <i className="fas fa-search text-base"></i>
                         </button>
                     </form>
                 </div>
@@ -62,8 +60,7 @@ const Header = (_props: Props) => {
                     </Link>
                 </div>
             </div>
-
-            <div className="flex items-center justify-between px-6 py-3 border-b-2 border-purple-200">
+            <div className="flex items-center justify-between px-6 py-3 border-b-2 border-purple-200 bg-white">
                 <div className="flex items-center space-x-6 text-gray-700">
                     <a href="#" className="hover:text-purple-600">
                         The must read
@@ -86,7 +83,7 @@ const Header = (_props: Props) => {
                     <span className="text-purple-600">
                         <i className="fas fa-phone-alt mr-1" style={{ transform: "scaleX(-1)" }}></i> +445 87 999 000
                     </span>
-                    <button className="border border-purple-600 text-purple-600 px-4 py-1 rounded hover:bg-purple-50">
+                    <button className="border border-purple-600 text-purple-600 bg-white px-4 py-1 rounded hover:bg-purple-600 hover:text-white transition">
                         Request a call
                     </button>
                 </div>
