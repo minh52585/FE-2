@@ -1,4 +1,4 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
 type Props = {};
 
@@ -7,9 +7,9 @@ const Header = (_props: Props) => {
         <div className="text-sm font-sans">
             <div className="flex items-center justify-between px-6 py-2 border-b">
                 <div className="flex items-center space-x-3">
-                    <span className="font-bold text-lg text-gray-800">
+                    <Link to={"/"} className="font-bold text-lg text-gray-800">
                         B-<span className="text-purple-600">World</span>
-                    </span>
+                    </Link>
                     <span className="text-gray-400">We love books</span>
                 </div>
 
@@ -49,17 +49,17 @@ const Header = (_props: Props) => {
                     <a href="#" className="hover:text-purple-600">
                         Returns
                     </a>
-                    <a href="#" className="hover:text-purple-700 text-purple-600 text-xl transition">
+                    <Link to={"/cart"} className="hover:text-purple-700 text-purple-600 text-xl transition">
                         <i className="fas fa-shopping-cart"></i>
-                    </a>
+                    </Link>
                     <span className="mx-2 text-gray-300">|</span>
                     <a href="#" className="hover:text-purple-700 text-purple-600 text-xl transition">
                         <i className="fas fa-heart"></i>
                     </a>
                     <span className="mx-2 text-gray-300">|</span>
-                    <a href="#" className="hover:text-purple-700 text-purple-600 text-xl transition">
+                    <Link to={"/login"} className="hover:text-purple-700 text-purple-600 text-xl transition">
                         <i className="fas fa-user"></i>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
