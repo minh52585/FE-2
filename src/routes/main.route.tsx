@@ -4,6 +4,8 @@ import HomePage from "../pages/HomePage";
 import ProductDetail from "../components/common/productdetail";
 import Cart from "../components/common/cart";
 import Thanhtoan from "../components/common/thanhtoan";
+import Login from "../pages/Auth/Login";
+import Register from "../pages/Auth/Register";
 
 export const router = createBrowserRouter([
   {
@@ -25,8 +27,15 @@ export const router = createBrowserRouter([
       {
         path: "thanhtoan",
         element: <Thanhtoan />,
-      }
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "Register",
+        element: <Register />,
+      },
     ],
-
   },
 ]);
