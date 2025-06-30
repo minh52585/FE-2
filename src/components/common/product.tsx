@@ -1,96 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-type Book = {
-    id: string;
-    title: string;
-    author: string;
-    price: string;
-    image: string;
+type Product = {
+    _id: string;
+    name: string;
+    price: number;
+    description?: string;
+    category?: string;
+    imageUrl: string;
+    stock: number;
 };
 
-const selectedBooks: Book[] = [
-    {
-        id: '1',
-        title: 'Doraemon Movie 44',
-        author: 'Fujiko F Fujio',
-        price: '54.000',
-        image: 'https://byvn.net/iHJr',
-    },
-    {
-        id: '2',
-        title: 'Người Đàn Ông Mang Tên OVE',
-        author: 'Fredrik Backman',
-        price: '134.000',
-        image: 'https://byvn.net/qjYt',
-    },
-    {
-        id: '3',
-        title: 'Trường Ca Achilles',
-        author: 'Madeline Miller',
-        price: '127.500',
-        image: 'https://byvn.net/S752',
-    },
-    {
-        id: '4',
-        title: 'Nhà Giả Kim',
-        author: 'Paulo Coelho',
-        price: '64.500',
-        image: 'https://byvn.net/jOt3',
-    },
-];
-
-const mustBuyBooks: Book[] = [
-    {
-        id: '5',
-        title: 'Cây Cam Ngọt Của Tôi',
-        author: 'José Mauro de Vasconcelos',
-        price: '88.500',
-        image: 'https://byvn.net/W2ZF',
-    },
-    {
-        id: '6',
-        title: 'Hai Số Phận',
-        author: 'Jeffrey Archer',
-        price: '185.500',
-        image: 'https://byvn.net/Zqh6',
-    },
-    {
-        id: '7',
-        title: 'Thị Trấn Nhỏ, Giấc Mơ Lớn',
-        author: 'Fredrik Backman',
-        price: '176.000',
-        image: 'https://byvn.net/CxfI',
-    },
-    {
-        id: '8',
-        title: 'Lớp Có Tang Sự',
-        author: 'Doo Vandenis',
-        price: '204.000',
-        image: 'https://byvn.net/s9RZ',
-    },
-];
-
-const BookCard = ({ book }: { book: Book }) => (
-    <Link to={`/products/${book.id}`} className="block">
+const ProductCard = ({ product }: { product: Product }) => (
+    <Link to={`/products/${product._id}`} className="block">
         <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col transition hover:-translate-y-1">
             <img
-                src={book.image}
-                alt={book.title}
+                src={product.imageUrl}
+                alt={product.name}
                 className="h-60 w-full object-cover rounded mb-4"
                 onError={(e) => {
                     e.currentTarget.onerror = null;
-                    e.currentTarget.src = 'https://via.placeholder.com/200x300.png?text=No+Image';
+                    e.currentTarget.src = 'https://placehold.co/200x300?text=No+Image';
                 }}
             />
-            <h3 className="font-semibold">{book.title}</h3>
-            <p className="text-sm text-gray-600 mb-1">{book.author}</p>
-            <p className="font-bold text-red-500 mb-3">{book.price}</p>
+            <h3 className="font-semibold mb-3">{product.name}</h3>
+            <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
+                <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">
+                    {product.category || 'Không rõ thể loại'}
+                </span>
+                <span className="font-bold text-red-500 text-base">
+                    {product.price.toLocaleString()}
+                </span>
+            </div>
             <button
                 className="bg-[#4f0f87] hover:bg-[#51348f] text-white py-2 px-3 rounded mt-auto"
-                onClick={(e) => {
-                    e.preventDefault();
-                }}
+                onClick={(e) => e.preventDefault()}
             >
                 Thêm vào giỏ hàng
             </button>
@@ -99,6 +43,30 @@ const BookCard = ({ book }: { book: Book }) => (
 );
 
 const BookCarousel: React.FC = () => {
+    const [products, setProducts] = useState<Product[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const res = await fetch('http://localhost:8888/api/products');
+                const data = await res.json();
+
+                if (Array.isArray(data.data)) {
+                    setProducts(data.data);
+                } else {
+                    console.error('Dữ liệu không hợp lệ:', data);
+                }
+            } catch (err) {
+                console.error('Lỗi khi fetch sản phẩm:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchProducts();
+    }, []);
+
     return (
         <div className="max-w-7xl mx-auto py-10 px-4 space-y-16">
             <section className="bg-white py-12 px-4">
@@ -130,7 +98,7 @@ const BookCarousel: React.FC = () => {
                             className="w-20 max-w-xs md:max-w-md lg:max-w-lg mx-auto md:mx-0 object-cover rounded-lg shadow-md"
                             onError={(e) => {
                                 e.currentTarget.onerror = null;
-                                e.currentTarget.src = "https://via.placeholder.com/400x300.png?text=No+Banner";
+                                e.currentTarget.src = "https://placehold.co/200x300?text=No+Image";
                             }}
                         />
                     </div>
@@ -138,31 +106,16 @@ const BookCarousel: React.FC = () => {
             </section>
 
             <section>
-                <h2 className="text-2xl font-bold mb-6 text-left">Lựa chọn cho bạn</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    {selectedBooks.map((book) => (
-                        <BookCard key={book.id} book={book} />
-                    ))}
-                </div>
-                <div className="flex justify-center space-x-2 mt-6">
-                    <div className="w-2 h-2 rounded-full bg-[#4f0f87]"></div>
-                    <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                    <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                </div>
-            </section>
-
-            <section>
-                <h2 className="text-2xl font-bold mb-6 text-left">Có thể mua ngay</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    {mustBuyBooks.map((book) => (
-                        <BookCard key={book.id} book={book} />
-                    ))}
-                </div>
-                <div className="flex justify-center space-x-2 mt-6">
-                    <div className="w-2 h-2 rounded-full bg-[#4f0f87]"></div>
-                    <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                    <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                </div>
+                <h2 className="text-2xl font-bold mb-6 text-left">Sản phẩm nổi bật của chúng tôi</h2>
+                {loading ? (
+                    <p>Đang tải sản phẩm...</p>
+                ) : (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                        {products.map((product) => (
+                            <ProductCard key={product._id} product={product} />
+                        ))}
+                    </div>
+                )}
             </section>
 
             <section>
@@ -195,12 +148,12 @@ const BookCarousel: React.FC = () => {
 
                     <div>
                         <img
-                            src="https://via.placeholder.com/600x400/EEE6FA/5C2D91?text=B-World+Map"
+                            src="https://placehold.co/600x400/EEE6FA/5C2D91?text=Map"
                             alt="Map"
                             className="w-full h-auto rounded shadow"
                             onError={(e) => {
                                 e.currentTarget.onerror = null;
-                                e.currentTarget.src = "https://via.placeholder.com/600x400.png?text=No+Map";
+                                e.currentTarget.src = "https://placehold.co/600x400?text=No+Map";
                             }}
                         />
                     </div>
