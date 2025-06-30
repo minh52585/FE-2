@@ -7,8 +7,8 @@ const Header = (_props: Props) => {
         <div className="text-sm font-sans">
             <div className="flex items-center justify-between px-6 py-2 border-b bg-white">
                 <div className="flex items-center space-x-3">
-                    <Link to={"/"} className="font-bold text-lg text-gray-800">
-                        Book<span className="text-purple-700">ora</span>
+                    <Link to={"/"} className="font-bold text-lg text-gray-800 hover:text-gray-800">
+                        Book<span className="text-[#9966cb]">ora</span>
                     </Link>
                     <span className="text-gray-400">We love books</span>
                 </div>
@@ -35,13 +35,13 @@ const Header = (_props: Props) => {
                 </div>
 
                 <div className="flex items-center space-x-6 text-gray-600">
-                    <a href="#" className="text-[#51348f]">
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
                         Chính sách bảo mật
                     </a>
-                    <a href="#" className="text-[#51348f]">
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
                         Bảo hành
                     </a>
-                    <a href="#" className="text-[#51348f]">
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
                         Vận chuyển
                     </a>
                     <Link to={"/cart"} className="hover:text-[#51348f] text-[#4f0f87] text-xl transition">
@@ -59,25 +59,28 @@ const Header = (_props: Props) => {
             </div>
             <div className="flex items-center justify-between px-6 py-3 border-b-2 border-purple-200 bg-white">
                 <div className="flex items-center space-x-6 text-gray-700">
-                    <a href="#" className="text-[#51348f]">
-                        Đáng đọc
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
+                        Nổi bật
                     </a>
-                    <a href="#" className="text-[#51348f]">
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
                         Tin tức
                     </a>
-                    <a href="#" className="text-[#51348f]">
-                        Xuất bản
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
+                        Hướng dẫn
                     </a>
-                    <a href="#" className="text-[#51348f]">
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
+                        Nhà xuất bản
+                    </a>
+                    <a href="#" className="text-[#51348f] hover:text-[#9966cb]">
                         Đăng ký nhận thông tin
                     </a>
                 </div>
 
                 <div className="flex items-center space-x-4">
-                    <span className="text-purple-600">
+                    <span className="text-[#7644a4]">
                         <i className="fas fa-phone-alt mr-1" style={{ transform: "scaleX(-1)" }}></i> +84 338 538 663
                     </span>
-                    <button className="border border-purple-600 text-purple-600 bg-white px-4 py-1 rounded hover:bg-purple-600 hover:text-white transition">
+                    <button className="border border-[#51348f] text-[#7644a4] bg-white px-4 py-1 rounded hover:bg-[#51348f] hover:text-white transition">
                         Liên hệ ngay
                     </button>
                 </div>

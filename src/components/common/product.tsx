@@ -9,38 +9,54 @@ type Product = {
     category?: string;
     imageUrl: string;
     stock: number;
+    status?: string;
 };
 
-const ProductCard = ({ product }: { product: Product }) => (
-    <Link to={`/products/${product._id}`} className="block">
-        <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col transition hover:-translate-y-1">
-            <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="h-60 w-full object-cover rounded mb-4"
-                onError={(e) => {
-                    e.currentTarget.onerror = null;
-                    e.currentTarget.src = 'https://placehold.co/200x300?text=No+Image';
-                }}
-            />
-            <h3 className="font-semibold mb-3">{product.name}</h3>
-            <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
-                <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full">
-                    {product.category || 'Không rõ thể loại'}
-                </span>
-                <span className="font-bold text-red-500 text-base">
-                    {product.price.toLocaleString()}
-                </span>
+const ProductCard = ({ product }: { product: Product }) => {
+    const isOutOfStock = product.stock === 0 || product.status === "Hết";
+
+    return (
+        <Link to={`/products/${product._id}`} className="block">
+            <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col transition hover:-translate-y-1">
+                <img
+                    src={product.imageUrl}
+                    alt={product.name}
+                    className="h-60 w-full object-cover rounded mb-4"
+                    onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src = 'https://placehold.co/200x300?text=No+Image';
+                    }}
+                />
+                <h3 className="font-semibold text-black mb-3">{product.name}</h3>
+
+                <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
+                    <span className="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">
+                        {product.category || 'Không rõ thể loại'}
+                    </span>
+                    <span className="font-bold text-red-500 text-base">
+                        {product.price.toLocaleString()}
+                    </span>
+                </div>
+
+                <div className="relative h-6 rounded-full overflow-hidden text-white text-sm text-center bg-[#9966cb]">
+                    <div
+                        className={`absolute top-0 left-0 h-full transition-all duration-500 ${
+                            isOutOfStock
+                                ? 'bg-[#551b8c] w-full'
+                                : 'bg-[#551b8c]'
+                        }`}
+                        style={{
+                            width: isOutOfStock ? '100%' : `${Math.min(product.stock, 100)}%`,
+                        }}
+                    ></div>
+                    <span className="relative z-10 leading-6">
+                        {isOutOfStock ? 'Hết hàng' : `Còn ${product.stock} sản phẩm`}
+                    </span>
+                </div>
             </div>
-            <button
-                className="bg-[#4f0f87] hover:bg-[#51348f] text-white py-2 px-3 rounded mt-auto"
-                onClick={(e) => e.preventDefault()}
-            >
-                Thêm vào giỏ hàng
-            </button>
-        </div>
-    </Link>
-);
+        </Link>
+    );
+};
 
 const BookCarousel: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -63,7 +79,6 @@ const BookCarousel: React.FC = () => {
                 setLoading(false);
             }
         };
-
         fetchProducts();
     }, []);
 
@@ -72,7 +87,7 @@ const BookCarousel: React.FC = () => {
             <section className="bg-white py-12 px-4">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 items-center">
                     <div className="space-y-4 md:text-left">
-                        <span className="inline-block border border-purple-300 text-purple-500 text-xs px-3 py-1 rounded-full">
+                        <span className="inline-block border border-[#7644a4] text-[#7644a4] text-xs px-3 py-1 rounded-full">
                             Tác giả của tháng Tám
                         </span>
 
@@ -106,12 +121,21 @@ const BookCarousel: React.FC = () => {
             </section>
 
             <section>
-                <h2 className="text-2xl font-bold mb-6 text-left">Sản phẩm nổi bật của chúng tôi</h2>
+                <div className="flex justify-between items-center mb-6">
+                    <h2 className="text-2xl font-bold text-left">Tủ sách nổi bật của chúng tôi</h2>
+                    <Link
+                        to={"#"}
+                        className="text-base text-black hover:text-[#551b8c] font-medium"
+                    >
+                        Xem thêm →
+                    </Link>
+                </div>
+
                 {loading ? (
                     <p>Đang tải sản phẩm...</p>
                 ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                        {products.map((product) => (
+                        {products.slice(0, 8).map((product) => (
                             <ProductCard key={product._id} product={product} />
                         ))}
                     </div>
