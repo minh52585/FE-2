@@ -8,7 +8,7 @@ const Header = (_props: Props) => {
             <div className="flex items-center justify-between px-6 py-2 border-b bg-white">
                 <div className="flex items-center space-x-3">
                     <Link to={"/"} className="font-bold text-lg text-gray-800">
-                        B-<span className="text-purple-600">World</span>
+                        Book<span className="text-purple-700">ora</span>
                     </Link>
                     <span className="text-gray-400">We love books</span>
                 </div>
@@ -27,7 +27,7 @@ const Header = (_props: Props) => {
                         />
                         <button
                             type="submit"
-                            className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-purple-600 rounded-full text-white hover:bg-purple-700 transition"
+                            className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#4f0f87] rounded-full text-white hover:bg-[#51348f] transition"
                         >
                             <i className="fas fa-search text-base"></i>
                         </button>
@@ -35,56 +35,50 @@ const Header = (_props: Props) => {
                 </div>
 
                 <div className="flex items-center space-x-6 text-gray-600">
-                    <a href="#" className="hover:text-purple-600">
-                        Privacy policy
+                    <a href="#" className="text-[#51348f]">
+                        Chính sách bảo mật
                     </a>
-                    <a href="#" className="hover:text-purple-600">
-                        Warranty
+                    <a href="#" className="text-[#51348f]">
+                        Bảo hành
                     </a>
-                    <a href="#" className="hover:text-purple-600">
-                        Shipping
+                    <a href="#" className="text-[#51348f]">
+                        Vận chuyển
                     </a>
-                    <a href="#" className="hover:text-purple-600">
-                        Returns
-                    </a>
-                    <Link to={"/cart"} className="hover:text-purple-700 text-purple-600 text-xl transition">
+                    <Link to={"/cart"} className="hover:text-[#51348f] text-[#4f0f87] text-xl transition">
                         <i className="fas fa-shopping-cart"></i>
                     </Link>
                     <span className="mx-2 text-gray-300">|</span>
-                    <a href="#" className="hover:text-purple-700 text-purple-600 text-xl transition">
+                    <a href="#" className="hover:text-[#51348f] text-[#4f0f87] text-xl transition">
                         <i className="fas fa-heart"></i>
                     </a>
                     <span className="mx-2 text-gray-300">|</span>
-                    <Link to={"/login"} className="hover:text-purple-700 text-purple-600 text-xl transition">
+                    <Link to={"/login"} className="hover:text-[#51348f] text-[#4f0f87] text-xl transition">
                         <i className="fas fa-user"></i>
                     </Link>
                 </div>
             </div>
             <div className="flex items-center justify-between px-6 py-3 border-b-2 border-purple-200 bg-white">
                 <div className="flex items-center space-x-6 text-gray-700">
-                    <a href="#" className="hover:text-purple-600">
-                        The must read
+                    <a href="#" className="text-[#51348f]">
+                        Đáng đọc
                     </a>
-                    <a href="#" className="hover:text-purple-600">
-                        News
+                    <a href="#" className="text-[#51348f]">
+                        Tin tức
                     </a>
-                    <a href="#" className="hover:text-purple-600">
-                        Promotion of the mount
+                    <a href="#" className="text-[#51348f]">
+                        Xuất bản
                     </a>
-                    <a href="#" className="hover:text-purple-600">
-                        Publishs
-                    </a>
-                    <a href="#" className="hover:text-purple-600">
-                        Subscribe to the newsletter
+                    <a href="#" className="text-[#51348f]">
+                        Đăng ký nhận thông tin
                     </a>
                 </div>
 
                 <div className="flex items-center space-x-4">
                     <span className="text-purple-600">
-                        <i className="fas fa-phone-alt mr-1" style={{ transform: "scaleX(-1)" }}></i> +445 87 999 000
+                        <i className="fas fa-phone-alt mr-1" style={{ transform: "scaleX(-1)" }}></i> +84 338 538 663
                     </span>
                     <button className="border border-purple-600 text-purple-600 bg-white px-4 py-1 rounded hover:bg-purple-600 hover:text-white transition">
-                        Request a call
+                        Liên hệ ngay
                     </button>
                 </div>
             </div>

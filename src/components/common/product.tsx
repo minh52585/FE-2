@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 type Book = {
+    id: string;
     title: string;
     author: string;
     price: string;
@@ -9,24 +11,28 @@ type Book = {
 
 const selectedBooks: Book[] = [
     {
+        id: '1',
         title: 'Doraemon Movie 44',
         author: 'Fujiko F Fujio',
         price: '54.000',
         image: 'https://byvn.net/iHJr',
     },
     {
+        id: '2',
         title: 'Người Đàn Ông Mang Tên OVE',
         author: 'Fredrik Backman',
         price: '134.000',
         image: 'https://byvn.net/qjYt',
     },
     {
-        title: "Trường Ca Achilles",
+        id: '3',
+        title: 'Trường Ca Achilles',
         author: 'Madeline Miller',
         price: '127.500',
         image: 'https://byvn.net/S752',
     },
     {
+        id: '4',
         title: 'Nhà Giả Kim',
         author: 'Paulo Coelho',
         price: '64.500',
@@ -36,24 +42,28 @@ const selectedBooks: Book[] = [
 
 const mustBuyBooks: Book[] = [
     {
+        id: '5',
         title: 'Cây Cam Ngọt Của Tôi',
         author: 'José Mauro de Vasconcelos',
         price: '88.500',
         image: 'https://byvn.net/W2ZF',
     },
     {
+        id: '6',
         title: 'Hai Số Phận',
         author: 'Jeffrey Archer',
         price: '185.500',
         image: 'https://byvn.net/Zqh6',
     },
     {
+        id: '7',
         title: 'Thị Trấn Nhỏ, Giấc Mơ Lớn',
         author: 'Fredrik Backman',
         price: '176.000',
         image: 'https://byvn.net/CxfI',
     },
     {
+        id: '8',
         title: 'Lớp Có Tang Sự',
         author: 'Doo Vandenis',
         price: '204.000',
@@ -62,23 +72,30 @@ const mustBuyBooks: Book[] = [
 ];
 
 const BookCard = ({ book }: { book: Book }) => (
-    <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col">
-        <img
-            src={book.image}
-            alt={book.title}
-            className="h-60 w-full object-cover rounded mb-4"
-            onError={(e) => {
-                e.currentTarget.onerror = null;
-                e.currentTarget.src = 'https://via.placeholder.com/200x300.png?text=No+Image';
-            }}
-        />
-        <h3 className="font-semibold">{book.title}</h3>
-        <p className="text-sm text-gray-600 mb-1">{book.author}</p>
-        <p className="font-bold text-red-500 mb-3">{book.price} đ</p>
-        <button className="bg-[#4f0f87] hover:bg-[#51348f] text-white py-2 px-3 rounded mt-auto">
-            Thêm vào giỏ hàng
-        </button>
-    </div>
+    <Link to={`/products/${book.id}`} className="block">
+        <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col transition hover:-translate-y-1">
+            <img
+                src={book.image}
+                alt={book.title}
+                className="h-60 w-full object-cover rounded mb-4"
+                onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = 'https://via.placeholder.com/200x300.png?text=No+Image';
+                }}
+            />
+            <h3 className="font-semibold">{book.title}</h3>
+            <p className="text-sm text-gray-600 mb-1">{book.author}</p>
+            <p className="font-bold text-red-500 mb-3">{book.price}</p>
+            <button
+                className="bg-[#4f0f87] hover:bg-[#51348f] text-white py-2 px-3 rounded mt-auto"
+                onClick={(e) => {
+                    e.preventDefault();
+                }}
+            >
+                Thêm vào giỏ hàng
+            </button>
+        </div>
+    </Link>
 );
 
 const BookCarousel: React.FC = () => {
@@ -123,8 +140,8 @@ const BookCarousel: React.FC = () => {
             <section>
                 <h2 className="text-2xl font-bold mb-6 text-left">Lựa chọn cho bạn</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    {selectedBooks.map((book, index) => (
-                        <BookCard key={index} book={book} />
+                    {selectedBooks.map((book) => (
+                        <BookCard key={book.id} book={book} />
                     ))}
                 </div>
                 <div className="flex justify-center space-x-2 mt-6">
@@ -137,8 +154,8 @@ const BookCarousel: React.FC = () => {
             <section>
                 <h2 className="text-2xl font-bold mb-6 text-left">Có thể mua ngay</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                    {mustBuyBooks.map((book, index) => (
-                        <BookCard key={index} book={book} />
+                    {mustBuyBooks.map((book) => (
+                        <BookCard key={book.id} book={book} />
                     ))}
                 </div>
                 <div className="flex justify-center space-x-2 mt-6">
