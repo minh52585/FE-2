@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# Graduation Project - Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the client-side of the Graduation Project. Below is an overview of the installed libraries and the project directory structure.
 
-Currently, two official plugins are available:
+## Installed Libraries
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Frontend Libraries
+- **React Router**: For handling routing in the application.
+- **Axios**: For making HTTP requests to the backend.
+- **Redux**: For state management across the application.
+- **Material-UI**: For pre-designed React components and styling.
+- **React-hook-form**: For building and managing forms.
+- **Joi**: For form validation schema.
+- **Framer-motion**: For animation
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Project Directory Structure
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+Front-end/
+├── public/               # Static files like index.html, images, etc.
+├── src/                  # Source code for the client-side application
+│   ├── apis/             # Write apis here
+│   ├── components/       # Reusable React components
+│   ├── pages/            # Page-level components
+│   ├── redux/            # Redux store, actions, and reducers
+│   ├── services/         # API service files (e.g., Axios configurations)
+│   ├── utils/            # Utility functions and helpers
+│   ├── styles/           # Global and component-specific styles
+│   ├── App.js            # Main application component
+│   ├── index.js          # Entry point of the React application
+├── package.json          # Project dependencies and scripts
+├── README.md             # Project documentation (this file)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## How to Run the Project
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone project:
+   ```bash
+   git clone https://github.com/thenam2kx/Graduation_Project-admin.git
+   ```
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+
+4. Open the application in your browser at `http://localhost:5173`.
+
+## 📖 Kéo branch từ github về máy
+### 🚀 1. Kiểm tra các branch đang có trên github
 ```
+  - git fetch
+  - git branch -r
+```
+
+### 🚀 2. Kéo branch cụ thể về máy (thay thế branch-name bằng tên branch)
+```
+  - git checkout -b branch-name origin/branch-name
+```
+
+## Contribution Guidelines
+
+- Follow the coding standards defined in `.eslintrc` and `.prettierrc`.
+- Ensure all new features are tested before merging.
+- Use meaningful commit messages.
+
+## License
+
+This project is licensed under the MIT License.
