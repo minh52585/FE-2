@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: Product }) => {
   const isOutOfStock = product.stock === 0 || product.status === 'Hết';
 
   return (
-    <Link to={`/products/${product._id}`} className="block">
+    <Link to={`/productdetails/${product._id}`} className="block">
       <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col justify-between h-full transition hover:-translate-y-1">
         <img
           src={product.imageUrl}
@@ -30,7 +30,6 @@ const ProductCard = ({ product }: { product: Product }) => {
           }}
         />
         <h3 className="font-semibold text-black mb-3 line-clamp-2">{product.name}</h3>
-
         <div className="flex justify-between items-center text-sm text-gray-600 mb-3">
           <span className="bg-orange-100 text-orange-700 text-xs px-2 py-0.5 rounded-full">
             {product.category || 'Không rõ thể loại'}
@@ -39,7 +38,6 @@ const ProductCard = ({ product }: { product: Product }) => {
             {product.price.toLocaleString()}
           </span>
         </div>
-
         <div className="relative h-6 rounded-full overflow-hidden text-white text-sm text-center bg-[#9966cb]">
           <div
             className={`absolute top-0 left-0 h-full transition-all duration-500 ${
@@ -63,7 +61,7 @@ const ProductList: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('');
   const [currentPage, setCurrentPage] = useState(1);
-  const productsPerPage = 12;
+  const productsPerPage = 16;
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -82,9 +80,13 @@ const ProductList: React.FC = () => {
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [selectedCategory, selectedPriceRange]);
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [selectedCategory, selectedPriceRange]);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
 
   const filteredProducts = products.filter((product) => {
     const matchCategory = selectedCategory ? product.category === selectedCategory : true;

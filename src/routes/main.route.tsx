@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../components/layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import ProductList from "../pages/Products/productList";
-import ProductDetail from "../components/common/productdetail";
+import ProductDetails from "../pages/Products/productDetails";
 import Cart from "../components/common/cart";
 import Thanhtoan from "../components/common/thanhtoan";
 import Login from "../pages/Auth/Login";
@@ -22,8 +22,8 @@ export const router = createBrowserRouter([
         element: <ProductList />,
       },
       {
-        path: "product/:id",
-        element: <ProductDetail />,
+        path: "productdetails/:id",
+        element: <ProductDetails />,
       },
       {
         path: "cart",
