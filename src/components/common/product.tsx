@@ -124,7 +124,7 @@ const BookCarousel: React.FC = () => {
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-bold text-left">Tủ sách nổi bật của chúng tôi</h2>
                     <Link
-                        to={"#"}
+                        to={"/products"}
                         className="text-base text-black hover:text-[#551b8c] font-medium"
                     >
                         Xem thêm →
