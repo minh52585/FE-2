@@ -20,15 +20,20 @@ const Login = () => {
 
   const onFinish = async (values: ILogin) => {
     try {
-      await api.post('api/login', values)
-      message.success('Đăng nhập thành công!')
-      const userData = {
-        ...values,
-        password: btoa(values.password)
+      const res = await api.post("api/login", values)
+      const { token, user } = res.data
+
+      if (!token || !user) {
+        throw new Error("Dữ liệu phản hồi không hợp lệ.")
       }
-      localStorage.setItem('user', JSON.stringify(userData))
-      console.log(userData);
-      nav('/')
+
+      localStorage.setItem("accessToken", token)
+      localStorage.setItem("user", JSON.stringify(user))
+
+      window.dispatchEvent(new Event("userLogin"))
+
+      message.success("Đăng nhập thành công!")
+      nav("/")
     } catch (error:any) {
       if (error.response && error.response.data && error.response.data.message) {
         message.error(error.response.data.message)

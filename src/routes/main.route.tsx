@@ -3,6 +3,8 @@ import MainLayout from "../components/layouts/MainLayout";
 import HomePage from "../pages/HomePage";
 import ProductList from "../pages/Products/productList";
 import ProductDetails from "../pages/Products/productDetails";
+import OrderList from "../pages/Orders/order";
+import OrderDetailPage from "../pages/Orders/orderDetails";
 import Cart from "../components/common/cart";
 import Thanhtoan from "../components/common/thanhtoan";
 import Login from "../pages/Auth/Login";
@@ -24,6 +26,14 @@ export const router = createBrowserRouter([
       {
         path: "productdetails/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "order",
+        element: <OrderList />,
+      },
+      {
+        path: "orderdetails/:id",
+        element: <OrderDetailPage />,
       },
       {
         path: "cart",
