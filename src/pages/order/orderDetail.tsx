@@ -36,6 +36,8 @@ const OrderDetailPage = () => {
       const res = await api.get(`/api/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
+      console.log(res);
+      
       return res.data || null
     },
     enabled: !!orderId
