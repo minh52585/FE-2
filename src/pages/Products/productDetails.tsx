@@ -160,7 +160,30 @@ const ProductDetails = () => {
           </div>
 
           <div className="flex items-center gap-3 mb-6">
-            <button className="bg-[#551b8c] text-white font-medium py-2 px-6 rounded hover:bg-[#51348f] transition-all">
+            <button
+              onClick={() => {
+                const stored = localStorage.getItem('cart');
+                let cart: any[] = stored ? JSON.parse(stored) : [];
+
+                const existingIndex = cart.findIndex(item => item._id === product._id);
+                if (existingIndex >= 0) {
+                  cart[existingIndex].quantity += quantity;
+                } else {
+                  cart.push({
+                    _id: product._id,
+                    name: product.name,
+                    price: product.price,
+                    description: product.description,
+                    image: product.imageUrl,
+                    quantity: quantity,
+                  });
+                }
+
+                localStorage.setItem('cart', JSON.stringify(cart));
+                alert('Đã thêm vào giỏ hàng!');
+              }}
+              className="bg-[#551b8c] text-white font-medium py-2 px-6 rounded hover:bg-[#51348f] transition-all"
+            >
               Thêm vào giỏ hàng
             </button>
             <Link to="/thanhtoan" className="bg-[#551b8c] text-white font-medium py-2 px-6 rounded hover:bg-[#51348f] hover:text-white transition-all">

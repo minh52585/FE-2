@@ -5,7 +5,7 @@ import ProductList from "../pages/Products/productList";
 import ProductDetails from "../pages/Products/productDetails";
 import OrderList from "../pages/Orders/order";
 import OrderDetailPage from "../pages/Orders/orderDetails";
-import Cart from "../components/common/cart";
+import Cart from "../pages/Cart";
 import Thanhtoan from "../components/common/thanhtoan";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
