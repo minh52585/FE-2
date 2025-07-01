@@ -27,12 +27,12 @@ const Checkout: React.FC = () => {
   });
 
   useEffect(() => {
-    const cartRaw = localStorage.getItem("cart");
-    if (cartRaw) {
+    const itemsRaw = localStorage.getItem("checkoutItems");
+    if (itemsRaw) {
       try {
-        setCart(JSON.parse(cartRaw));
+        setCart(JSON.parse(itemsRaw));
       } catch (err) {
-        console.error("Lỗi parse cart:", err);
+        console.error("Lỗi parse checkout items:", err);
       }
     }
 
