@@ -19,7 +19,7 @@ const ProductCard = ({ product }: { product: Product }) => {
 
   return (
     <Link to={`/products/${product._id}`} className="block">
-      <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col transition hover:-translate-y-1">
+      <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col justify-between h-full transition hover:-translate-y-1">
         <img
           src={product.imageUrl}
           alt={product.name}
@@ -43,7 +43,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         <div className="relative h-6 rounded-full overflow-hidden text-white text-sm text-center bg-[#9966cb]">
           <div
             className={`absolute top-0 left-0 h-full transition-all duration-500 ${
-              isOutOfStock ? 'bg-[#551b8c] w-full' : 'bg-[#551b8c]'
+              isOutOfStock ? 'bg-[#9966cb] w-full' : 'bg-[#551b8c]'
             }`}
             style={{
               width: isOutOfStock ? '100%' : `${Math.min(product.stock, 100)}%`,
@@ -113,53 +113,71 @@ const ProductList: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 space-y-6">
-      <div className="flex flex-wrap items-center gap-4 mb-6">
-        <select
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          className="border border-gray-300 rounded px-4 py-2 text-sm"
-        >
-          <option value="">-- Chọn danh mục --</option>
-          {categories.map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
-        </select>
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+        <div className="flex flex-wrap items-center gap-4">
+            <div className="relative w-48">
+                <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)} className="appearance-none w-full border border-gray-300 rounded px-4 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#551b8c]">
+                    <option value="">-- Chọn danh mục --</option>
+                    {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                        {cat}
+                    </option>
+                    ))}
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                    <svg className="w-4 h-4"  fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
 
-        <select
-          value={selectedPriceRange}
-          onChange={(e) => setSelectedPriceRange(e.target.value)}
-          className="border border-gray-300 rounded px-4 py-2 text-sm"
-        >
-          <option value="">-- Chọn mức giá --</option>
-          <option value="0-100">Dưới 100K</option>
-          <option value="100-300">100K - 300K</option>
-          <option value="300+">Trên 300K</option>
-        </select>
+            <div className="relative w-48">
+                <select value={selectedPriceRange} onChange={(e) => setSelectedPriceRange(e.target.value)} className="appearance-none w-full border border-gray-300 rounded px-4 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#551b8c]">
+                    <option value="">-- Chọn mức giá --</option>
+                    <option value="0-100">Dưới 100K</option>
+                    <option value="100-300">100K - 300K</option>
+                    <option value="300+">Trên 300K</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
 
-        {(selectedCategory || selectedPriceRange) && (
-          <button
-            onClick={() => {
-              setSelectedCategory('');
-              setSelectedPriceRange('');
-            }}
-            className="text-sm text-red-600 hover:underline"
-          >
-            Xóa bộ lọc ✕
-          </button>
-        )}
-      </div>
-
-      {currentProducts.length === 0 ? (
-        <p>Không có sản phẩm phù hợp.</p>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {currentProducts.map((product) => (
-            <ProductCard key={product._id} product={product} />
-          ))}
+            {(selectedCategory || selectedPriceRange) && (
+                <button onClick={() => { setSelectedCategory(''); setSelectedPriceRange('') }} className="text-sm text-white bg-red-500 hover:bg-red-600 px-3 py-2 rounded transition">
+                    Xóa bộ lọc ✕
+                </button>
+            )}
         </div>
-      )}
+
+        <div className="relative w-44">
+            <select onChange={(e) => { const value = e.target.value; const sorted = [...filteredProducts].sort((a, b) => value === 'asc' ? a.price - b.price : b.price - a.price);
+                setProducts(sorted);
+            }}
+            className="appearance-none w-full border border-gray-300 rounded px-4 py-2 text-sm text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#551b8c]">
+                <option value="">-- Sắp xếp theo --</option>
+                <option value="asc">Giá thấp đến cao</option>
+                <option value="desc">Giá cao đến thấp</option>
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-500">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    {currentProducts.length === 0 ? (
+        <p>Không có sản phẩm phù hợp.</p>
+    ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {currentProducts.map((product) => (
+                <ProductCard key={product._id} product={product} />
+            ))}
+        </div>
+    )}
 
       <div className="flex justify-center mt-10">
         <ul className="flex space-x-2 text-sm">
@@ -170,9 +188,8 @@ const ProductList: React.FC = () => {
                 className={`px-3 py-1 border rounded ${
                   page === currentPage
                     ? 'bg-[#551b8c] text-white'
-                    : 'hover:bg-gray-100 text-gray-800'
-                }`}
-              >
+                    : 'bg-white border-gray-300 text-gray-800'
+                }`}>
                 {page}
               </button>
             </li>
