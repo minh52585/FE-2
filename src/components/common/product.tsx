@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: Product }) => {
     const isOutOfStock = product.stock === 0 || product.status === "Hết";
 
     return (
-        <Link to={`/products/${product._id}`} className="block">
+        <Link to={`/productdetails/${product._id}`} className="block">
             <div className="bg-white border rounded-lg shadow-sm hover:shadow-md p-4 flex flex-col transition hover:-translate-y-1">
                 <img
                     src={product.imageUrl}
