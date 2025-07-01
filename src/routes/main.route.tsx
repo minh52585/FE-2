@@ -6,9 +6,10 @@ import ProductDetails from "../pages/Products/productDetails";
 import OrderList from "../pages/Orders/order";
 import OrderDetailPage from "../pages/Orders/orderDetails";
 import Cart from "../pages/Cart";
-import Thanhtoan from "../components/common/thanhtoan";
+import Checkout from "../pages/Checkout";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
+
 
 export const router = createBrowserRouter([
   {
@@ -40,8 +41,8 @@ export const router = createBrowserRouter([
         element: <Cart />,
       },
       {
-        path: "thanhtoan",
-        element: <Thanhtoan />,
+        path: "checkout",
+        element: <Checkout />,
       },
       {
         path: "login",

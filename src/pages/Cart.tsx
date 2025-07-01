@@ -129,7 +129,7 @@ const Cart = () => {
             </div>
 
             <Link
-              to="/thanhtoan"
+              to="/checkout"
               className="w-full block text-center px-6 py-3 bg-[#4f0f87] text-white font-medium rounded hover:bg-[#51348f] hover:text-white transition"
             >
               Tiến hành Thanh toán

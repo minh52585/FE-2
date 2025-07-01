@@ -186,7 +186,7 @@ const ProductDetails = () => {
             >
               Thêm vào giỏ hàng
             </button>
-            <Link to="/thanhtoan" className="bg-[#551b8c] text-white font-medium py-2 px-6 rounded hover:bg-[#51348f] hover:text-white transition-all">
+            <Link to="/checkout" className="bg-[#551b8c] text-white font-medium py-2 px-6 rounded hover:bg-[#51348f] hover:text-white transition-all">
               Mua ngay
             </Link>
           </div>

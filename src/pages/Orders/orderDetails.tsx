@@ -21,8 +21,6 @@ import {
 const { Title, Text, Paragraph } = Typography
 const { TextArea } = Input
 
-
-
 const OrderDetailPage = () => {
   const { id: orderId } = useParams()
   const navigate = useNavigate()
@@ -42,6 +40,24 @@ const OrderDetailPage = () => {
     },
     enabled: !!orderId
   })
+  const confirmReceived = useMutation({
+  mutationFn: async () => {
+    const token = localStorage.getItem('accessToken')
+    const res = await api.put(`/api/orders/${orderId}/`, { status: 'completed' }, {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+    return res.data
+  },
+  onSuccess: () => {
+    message.success('Đã xác nhận đã nhận hàng')
+    queryClient.invalidateQueries({ queryKey: ['order-detail', orderId] })
+    queryClient.invalidateQueries({ queryKey: ['orders'] })
+  },
+  onError: () => {
+    message.error('Xác nhận thất bại')
+  }
+})
+
 
   const updateStatus = useMutation({
     mutationFn: async ({ status, reason }: { status: 'cancelled' | 'refunded'; reason: string }) => {
@@ -292,9 +308,14 @@ const OrderDetailPage = () => {
                 </Button>
               )}
               {order.status === 'delivered' && (
-                <Button danger block onClick={() => showReasonModal('refunded')}>
-                  Yêu cầu hoàn tiền
-                </Button>
+                <>
+                  <Button type='primary' block onClick={() => confirmReceived.mutate()}>
+                    Đã nhận hàng
+                  </Button>
+                  <Button danger block onClick={() => showReasonModal('refunded')}>
+                    Yêu cầu hoàn tiền
+                  </Button>
+                </>
               )}
               <Button block icon={<PhoneOutlined />}>Liên hệ hỗ trợ</Button>
             </Space>
