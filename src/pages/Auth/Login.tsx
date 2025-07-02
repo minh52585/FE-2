@@ -34,7 +34,7 @@ const Login = () => {
 
       message.success("Đăng nhập thành công!")
       nav("/")
-    } catch (error:any) {
+    } catch (error: any) {
       if (error.response && error.response.data && error.response.data.message) {
         message.error(error.response.data.message)
         console.log('Lỗi đăng nhập:', error.response.data.message)
@@ -48,12 +48,12 @@ const Login = () => {
   return (
     <div
       style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: '20px',
-      fontFamily: "'Inter', sans-serif",
-    }}>
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: '20px',
+        fontFamily: "'Inter', sans-serif",
+      }}>
       <div style={{
         background: '#ffffff',
         boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
@@ -62,8 +62,8 @@ const Login = () => {
         width: '100%',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
       }}>
-        <h2 style={{ textAlign:'center', marginBottom: 32, fontSize: '28px', fontWeight: '600', color: '#4f0f87', letterSpacing: '0.5px' }}>ĐĂNG NHẬP TÀI KHOẢN</h2>
-        
+        <h2 style={{ textAlign: 'center', marginBottom: 32, fontSize: '28px', fontWeight: '600', color: '#4f0f87', letterSpacing: '0.5px' }}>ĐĂNG NHẬP TÀI KHOẢN</h2>
+
         <Form {...formItemLayout} form={form} onFinish={onFinish} initialValues={{ residence: ['zhejiang', 'hangzhou', 'xihu'], prefix: '86' }} style={{ maxWidth: '100%' }} scrollToFirstError>
           <Form.Item
             name="email"
@@ -117,17 +117,22 @@ const Login = () => {
             </Button>
           </Form.Item>
         </Form>
-        
+
         <div style={{ width: '66%', margin: '0 auto' }}>
           <Divider plain>hoặc</Divider>
         </div>
-
         <Form.Item style={{ display: 'flex', justifyContent: 'center' }}>
           <div style={{ display: 'flex', gap: '8px' }}>
             <Button
               style={{ boxShadow: 'none', borderColor: '#d9d9d9' }}
-              onClick={() => alert('Chưa tích hợp Google!')}
-              icon={<img src="https://cdn-icons-png.flaticon.com/512/281/281764.png" style={{ width: 18, height: 18, marginRight: 8 }} />}
+              onClick={() => window.location.href = "http://localhost:8888/auth/google"}
+              icon={
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/281/281764.png"
+                  alt="Google"
+                  style={{ width: 18, height: 18, marginRight: 8 }}
+                />
+              }
               className="flex items-center justify-center px-4 py-2"
             >
               Google
@@ -135,8 +140,14 @@ const Login = () => {
 
             <Button
               style={{ boxShadow: 'none', borderColor: '#d9d9d9' }}
-              onClick={() => alert('Chưa tích hợp Facebook!')}
-              icon={<img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" style={{ width: 18, height: 18, marginRight: 8 }} />}
+              onClick={() => window.location.href = "http://localhost:8888/auth/facebook"}
+              icon={
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                  alt="Facebook"
+                  style={{ width: 18, height: 18, marginRight: 8 }}
+                />
+              }
               className="flex items-center justify-center px-4 py-2"
             >
               Facebook
@@ -144,8 +155,14 @@ const Login = () => {
 
             <Button
               style={{ boxShadow: 'none', borderColor: '#d9d9d9' }}
-              onClick={() => alert('Chưa tích hợp GitHub!')}
-              icon={<img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" style={{ width: 18, height: 18, marginRight: 8 }} />}
+              onClick={() => window.location.href = "http://localhost:8888/auth/github"}
+              icon={
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                  alt="GitHub"
+                  style={{ width: 18, height: 18, marginRight: 8 }}
+                />
+              }
               className="flex items-center justify-center px-4 py-2"
             >
               GitHub
