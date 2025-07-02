@@ -108,14 +108,6 @@ const BookCarousel: React.FC = () => {
                         <p className="text-xs uppercase text-gray-500 mb-2">
                             Sách có chữ ký + giảm giá 30%
                         </p>
-                        <img
-                            src="#"
-                            className="w-20 max-w-xs md:max-w-md lg:max-w-lg mx-auto md:mx-0 object-cover rounded-lg shadow-md"
-                            onError={(e) => {
-                                e.currentTarget.onerror = null;
-                                e.currentTarget.src = "https://placehold.co/200x300?text=No+Image";
-                            }}
-                        />
                     </div>
                 </div>
             </section>

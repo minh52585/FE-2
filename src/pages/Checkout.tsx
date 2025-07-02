@@ -32,7 +32,7 @@ const Checkout: React.FC = () => {
       try {
         setCart(JSON.parse(itemsRaw));
       } catch (err) {
-        console.error("Lỗi parse checkout items:", err);
+        console.error("Lỗi parse check items:", err);
       }
     }
 

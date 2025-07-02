@@ -86,8 +86,12 @@ const OrderDetailPage = () => {
       hour: '2-digit', minute: '2-digit'
     })
 
-  const formatFullAddress = (address: IOrder['address']) =>
-    [address.detail, address.district, address.city].filter(Boolean).join(', ')
+  const formatFullAddress = (address?: IOrder['address']) => {
+  if (!address) return 'Không có địa chỉ';
+  const { detail, district, city } = address;
+  return [detail, district, city].filter(Boolean).join(', ');
+}
+
 
   const showReasonModal = (action: 'cancelled' | 'refunded') => {
     let selectedReason = ''
@@ -131,7 +135,7 @@ const OrderDetailPage = () => {
           message.error(selectedReason === 'Khác'
             ? 'Lý do cụ thể phải có ít nhất 10 ký tự'
             : 'Vui lòng chọn lý do')
-          throw new Error('Invalid reason') // Prevent closing
+          throw new Error('Invalid reason')
         }
 
         updateStatus.mutate({ status: action, reason })
@@ -292,7 +296,7 @@ const OrderDetailPage = () => {
           <Card title='Thông tin giao hàng' style={{ marginBottom: 24 }}>
             <Space direction='vertical' size='small' style={{ width: '100%' }}>
               <Text strong>Địa chỉ giao hàng</Text>
-              <Text>{formatFullAddress(order.address)}</Text>
+              <Text>{order.address ? formatFullAddress(order.address) : 'Không có địa chỉ'}</Text>
               {order.addressNote && <Alert message={order.addressNote} type='info' showIcon={false} />}
               <Divider style={{ margin: '12px 0' }} />
               <Text>{getShippingMethodLabel(order.shippingMethod)}</Text>

@@ -133,7 +133,6 @@ const OrderList: React.FC = () => {
 
                   return (
                     <Card key={order._id}>
-                      {/* Header */}
                       <Row
                         justify="space-between"
                         align="middle"
@@ -161,7 +160,6 @@ const OrderList: React.FC = () => {
                         </Col>
                       </Row>
 
-                      {/* Ngày đặt & Tổng tiền */}
                       <Row justify="space-between" style={{ marginBottom: 16 }}>
                         <Col>
                           <Space>
@@ -174,7 +172,6 @@ const OrderList: React.FC = () => {
                        
                       </Row>
 
-                      {/* Danh sách sản phẩm */}
                       {order.items.map((item, index) => (
                         <Row
                           key={index}
@@ -211,7 +208,6 @@ const OrderList: React.FC = () => {
                                 {(item.price * item.quantity).toLocaleString(
                                   "vi-VN"
                                 )}{" "}
-                                ₫
                               </Text>
                                <Col>
                           <Text strong>
